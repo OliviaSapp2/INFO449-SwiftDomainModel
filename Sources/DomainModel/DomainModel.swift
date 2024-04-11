@@ -42,8 +42,6 @@ public struct Money {
             }
         }
         return Money(amount: output, currency: currencyOutput)
-        //currency = currencyOutput
-        //return output
     }
     
     func add (_ more: Money) -> Money{
@@ -114,8 +112,6 @@ public class Person {
     var firstName : String
     var lastName : String
     var age : UInt
-    //var job : String? = nil
-    //var spouse: String? = nil
     private var _job: Job?
     private var _spouse: Person?
     
@@ -123,8 +119,6 @@ public class Person {
         firstName = f
         lastName = l
         age = a
-//        self._job = nil
-//        self._spouse = nil
     }
     
     var job: Job? {
@@ -173,11 +167,6 @@ public class Family {
     }
     
     func haveChild(_ child: Person) -> Bool{
-//        if members.age >= 21{
-//            self.members.append(child)
-//            return true
-//        }
-//        return false
         if((members[0].age > 21) || (members[1].age > 21)) {
             members.append(child)
             return true
