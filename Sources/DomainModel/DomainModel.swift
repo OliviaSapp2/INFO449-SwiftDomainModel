@@ -109,13 +109,14 @@ public class Job {
 // Person
 //
 public class Person {
-    var firstName : String
-    var lastName : String
+    var firstName : String?
+    var lastName : String?
     var age : UInt
     private var _job: Job?
     private var _spouse: Person?
     
-    init(firstName f : String, lastName l : String, age a : UInt){
+    init(firstName f : String? = nil, lastName l : String? = nil, age a : UInt){
+        assert(firstName == nil && lastName == nil, "Must have a first or last name.")
         firstName = f
         lastName = l
         age = a
@@ -149,8 +150,8 @@ public class Person {
     
     func toString () -> String{
         let jobName = job != nil ? job!.title : "nil"
-        let spouseFName = spouse != nil ? spouse!.firstName : "nil"
-        return "[Person: firstName:\(firstName) lastName:\(lastName) age:\(age) job:\(jobName) spouse:\(spouseFName)]"
+        let spouseName = spouse != nil ? spouse!.firstName : "nil"
+        return "[Person: firstName:\(firstName ?? "nil") lastName:\(lastName ?? "nil") age:\(age) job:\(jobName) spouse:\(spouseName)]"
     }
 }
 

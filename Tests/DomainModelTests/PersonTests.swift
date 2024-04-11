@@ -33,6 +33,21 @@ class PersonTests: XCTestCase {
         ("testAgeRestrictions", testAgeRestrictions),
         ("testAdultAgeRestrictions", testAdultAgeRestrictions),
     ]
+    
+    func testFirstNameOnly (){
+        let beyonce = Person(firstName: "Beyonce", age:45)
+        beyonce.job = Job(title: "Singer", type: Job.JobType.Salary(2000))
+        beyonce.spouse = Person(lastName: "JayZ", age: 50)
+        XCTAssert(beyonce.spouse != nil)
+        XCTAssert(beyonce.toString() == "[Person: firstName:Beyonce lastName: age:45 job:Singer spouse:JayZ]")
+    }
+    
+    func testLastNameOnly (){
+        let Obama = Person(lastName: "Obama", age:65)
+        Obama.job = Job(title: "President", type: Job.JobType.Salary(2000))
+        Obama.spouse = Person(firstName: "Michell", age: 60)
+        XCTAssert(Obama.toString() == "[Person: firstName: lastName:Obama age:65 job:President spouse:Michell]")
+    }
 }
 
 class FamilyTests : XCTestCase {
